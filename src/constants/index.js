@@ -127,29 +127,29 @@ const slides = [
 
 const testimonials = [
   {
-    name: "John Miller",
-    pos: "Founder of ModernEdge Solutions",
+    name: "Sivuyile Matomane",
+    pos: "Huawei Lead Network Engineer",
     review:
-      "David Jhon turned our vision into a stunning, functional platform that our customers love. Their creativity and technical expertise truly set them apart.",
+      "Working with Thapelo at Huawei was a game-changer. He consistently delivered scalable, secure solutions with precision and speed. A true leader in networking.",
     imgPath: "/images/client1.png",
   },
   {
     name: "Emily Carter",
     pos: "UX Designer at PixelWorks Studio",
     review:
-      "David Jhon consistently brings fresh ideas and innovative solutions. Their passion for creativity and attention to detail elevate every project.",
+      "Thapelo Mthize transformed our vision into a stunning, functional e-commerce store that our customers love. His creativity and technical expertise truly set him apart.",
     imgPath: "/images/client2.png",
   },
   {
-    name: "Sarah Lopez",
+    name: "Henry Skosana",
     pos: "Entrepreneur and Small Business Owner",
     review:
-      "Exceeded my expectations with a unique and beautifully designed product that works flawlessly. Their creative touch is outstanding.",
+      "Thapelo Mthize As an entrepreneur, I was blown away — the product is stunning, flawless, and truly exceeded my expectations.",
     imgPath: "/images/client3.png",
   },
   {
     name: "David Chen",
-    pos: "Project Manager at CreativeSphere Agency",
+    pos: "Project Manager at NovaTech Solutions",
     review:
       "Blends technical skills with bold creativity to deliver exceptional results. They push boundaries and elevate every project they work on.",
     imgPath: "/images/client4.png",
