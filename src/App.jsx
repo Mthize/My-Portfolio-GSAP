@@ -1,7 +1,7 @@
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import TechStack from "./sections/TechStack";
-import Project from "./sections/Project";
+import Projects from "./sections/Projects";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <Hero />
       <About />
       <TechStack />
-      <Project />
+      <Projects />
     </div>
   );
 };
