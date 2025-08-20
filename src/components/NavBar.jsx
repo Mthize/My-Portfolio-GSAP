@@ -7,7 +7,7 @@ const NavBar = () => {
         <img
           src="/images/logo.png"
           alt="logo"
-          className="md:size-12 size-10 object-cover object-center"
+          className="md:size-20 size-16 object-cover object-center"
         />
         <div className="md:flex items-center gap-7 hidden">
           {navItems.map((item, index) => (

@@ -6,6 +6,10 @@ import Testimonials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
+import Loader from "./components/Loader";
+
+
+
 
 
 
@@ -13,7 +17,7 @@ const App = () => {
   return (
     <div>
       <NavBar />
-      
+      <Loader />       
       <Hero />
       <About />
       <TechStack />

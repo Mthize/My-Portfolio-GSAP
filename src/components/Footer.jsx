@@ -9,7 +9,7 @@ const Footer = () => {
       <img
         src="/images/logo.png"
         alt="logo"
-        className="w-7 h-7 object-cover object-center"
+        className="w-20 h-16 object-cover object-center"
       />
       <div className="flex items-center md:gap-16 gap-8 ">
         {footerIconsList.map((icon, index) => (

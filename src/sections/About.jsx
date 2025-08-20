@@ -21,8 +21,8 @@ const About = () => {
       stagger: 0.2,
       duration: 0.8,
       ease: "power3.inout",
-      ScrollTrigger: {
-        trigger: ".#about",
+      scrollTrigger: {
+        trigger: "#about",
         start: "top center",
       },
     });
@@ -34,8 +34,8 @@ const About = () => {
       stagger: 0.15,
       duration: 0.6,
       ease: "power3.inout",
-      ScrollTrigger: {
-        trigger: ".#about",
+      scrollTrigger: {
+        trigger: "#about",
         start: "top center",
       },
     });
@@ -138,7 +138,11 @@ const About = () => {
               </div>
             </div>
             {bentoSocialLinks.map((item, index) => (
-              <div key={index} className="md:col-span-4 col-span-12 row-span-2">
+              <a
+                key={index}
+                href={item.href}
+                className="md:col-span-4 col-span-12 row-span-2"
+              >
                 <div className="bg-black-300 rounded-2xl p-7 w-full h-full group cursor-pointer">
                   <div className="flex justify-between items-center h-full">
                     <div className="flex items-center md:gap-5">
@@ -156,7 +160,7 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

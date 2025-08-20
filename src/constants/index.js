@@ -29,17 +29,17 @@ const bentoSocialLinks = [
   },
   {
     name: "Instagram",
-    href: "https://www.facebook.com/",
+    href: "https://instagram.com/thapelo_mthize",
     icon: "/images/insta.svg",
   },
   {
     name: "LinkedIn",
-    href: "https://www.facebook.com/",
+    href: "https://www.linkedin.com/in/thapelomthize",
     icon: "/images/linkedin.svg",
   },
   {
     name: "WhatsApp",
-    href: "https://www.facebook.com/",
+    href: "https://wa.me/+27715820124",
     icon: "/images/whatsapp.svg",
   },
 ];
