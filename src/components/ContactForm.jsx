@@ -1,60 +1,153 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as Z from "zod";
+import emailjs from "@emailjs/browser";
+import { useState } from "react";
+
+const contactFormSchema = Z.object({
+  name: Z.string().nonempty("Name is required"),
+  email: Z.string().email("Invalid email").nonempty("Email is required"),
+  subject: Z.string().nonempty("Subject is required"),
+  message: Z.string().nonempty("Message is required"),
+});
+
+const initialValues = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+
 const ContactForm = () => {
+  const [loading, setLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues: initialValues,
+    resolver: zodResolver(contactFormSchema),
+  });
+
+  const onSubmit = async (data) => {
+    setLoading(true);
+    try {
+      const payload = {
+        from_name: data.name,
+        to_name: "Full Stack Developer",
+        message: data.message,
+        reply_to: data.email,
+        subject: data.subject,
+      };
+
+      const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID;
+      const templateID = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+      const userID = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
+
+      await emailjs.send(serviceID, templateID, payload, {
+        publicKey: userID,
+      });
+    } catch (error) {
+      console.log("FAILED...", error);
+      alert("Failed to send message, please try again.");
+    } finally {
+      setLoading(false);
+      reset(initialValues);
+      alert("Message sent successfully!");
+    }
+  };
+
   return (
     <div className="flex-center">
-      <form className="w-full text[#a7a7a7] flex flex-col gap-7">
-        <div claasName="">
-          <label className="label" htmlfor="name">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full text-[#a7a7a7] flex flex-col gap-7"
+      >
+        <div>
+          <label
+            className="block text-white md:text-2xl font-semibold mb-2"
+            htmlFor="name"
+          >
             Name
           </label>
           <input
+            {...register("name")}
             type="text"
             id="name"
             placeholder="Tommy"
-            className="bg-black-300 w-full px-4 py-4 font-light
-            md:text-base text-sm placeholder:text-[#fafafa50] rounded-md"
-          />
-        </div>
-        <div claasName="">
-          <label className="label" htmlfor="email">
-            Email Address
-          </label>
-          <input
-            type="text"
-            id="email"
-            placeholder="tommy@gmail.com"
             className="input"
           />
+          {errors.name && (
+            <span className="text-red-500">{errors.name.message}</span>
+          )}
         </div>
-        <div claasName="">
-          <label className="label" htmlfor="subject">
+
+        <div>
+          <label
+            className="block md:text-2xl font-semibold mb-2"
+            htmlFor="email"
+          >
+            Email address
+          </label>
+          <input
+            type="email"
+            {...register("email")}
+            id="email"
+            placeholder="hello@gmail.com"
+            className="input"
+          />
+          {errors.email && (
+            <span className="text-red-500">{errors.email.message}</span>
+          )}
+        </div>
+
+        <div>
+          <label
+            className="block md:text-2xl font-semibold mb-2"
+            htmlFor="subject"
+          >
             Subject
           </label>
           <input
+            {...register("subject")}
             type="text"
-            id="Subject"
-            placeholder="Tommy"
+            id="subject"
+            placeholder="Enter your subject"
             className="input"
           />
+          {errors.subject && (
+            <span className="text-red-500">{errors.subject.message}</span>
+          )}
         </div>
-        <div claasName="">
-          <label className="label" htmlfor="message">
+
+        <div>
+          <label
+            className="block md:text-2xl font-semibold mb-2"
+            htmlFor="message"
+          >
             Message
           </label>
           <textarea
-            type="text"
-            id="name"
-            placeholder="How can I help you?"
-            rows={"5"}
+            id="message"
+            {...register("message")}
+            placeholder="Enter your message"
+            rows="5"
             className="input"
-          />
+          ></textarea>
+          {errors.message && (
+            <span className="text-red-500">{errors.message.message}</span>
+          )}
         </div>
 
         <button
           type="submit"
-          className="cursor-pointer py-4 bg-blue-50 text-white-50 
-          font-semibold rounded-md hover:bg-blue-600 transition-all duration-300"
+          className="w-full py-4 bg-blue-50 text-white-50 font-semibold rounded-md 
+          hover:bg-blue-600 transition duration-300"
         >
-          Send Message
+          {
+            loading ? "Sending..." : "Send Message"
+          }
         </button>
       </form>
     </div>
