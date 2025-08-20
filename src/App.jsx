@@ -7,6 +7,8 @@ import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Loader from "./components/Loader";
+import SideBar from "./components/SideBar";
+
 
 
 
@@ -16,6 +18,7 @@ import Loader from "./components/Loader";
 const App = () => {
   return (
     <div>
+      <SideBar />
       <NavBar />
       <Loader />       
       <Hero />
