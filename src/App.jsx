@@ -4,6 +4,8 @@ import TechStack from "./sections/TechStack";
 import Projects from "./sections/Projects";
 import Testimonials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
+import Footer from "./components/Footer";
+
 
 const App = () => {
   return (
@@ -14,6 +16,7 @@ const App = () => {
       <Projects />
       <Testimonials />
       <Contact />
+      <Footer />
     </div>
   );
 };
