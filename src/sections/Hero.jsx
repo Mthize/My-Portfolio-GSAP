@@ -1,4 +1,6 @@
 import GradientSphere from "../components/GradientSphere";
+import HeroExperience from "../components/HeroExperience";
+
 
 const Hero = () => {
   return (
@@ -33,7 +35,9 @@ const Hero = () => {
         </div>
       </div>
 
-      
+      <div className="w-full h-full absolute inset-0">
+        <HeroExperience />
+      </div>
     </section>
   );
 };
